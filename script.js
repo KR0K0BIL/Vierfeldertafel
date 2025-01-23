@@ -1,26 +1,46 @@
 let numbers = []
 let locks = []
+let n = []
+
+function setText(id, a, b) {
+    value = a / b
+    object = document.getElementById(id)
+    if (isNaN(value)) {
+        object.innerText = ""
+    } else {
+        equal = "≈"
+        if (Number.isInteger(value*100)) {
+            number = (value * 100) + '%'
+            equal = "="
+        } else if (Math.abs(value) < 0.01) {
+            number = (value * 100).toPrecision(3) + '%'
+        } else {
+            number = (value * 100).toFixed(2) + '%'
+        }
+        object.innerHTML = a + "/" + b + " " + equal + " <b>" + number + "</b>"
+    }
+}
 
 function check(a, b, c) {
     let isa = (numbers[a].value != "")
     let isb = (numbers[b].value != "")
     let isc = (numbers[c].value != "")
-    let valuea = parseFloat(numbers[a].value)
-    let valueb = parseFloat(numbers[b].value)
-    let valuec = parseFloat(numbers[c].value)
 
     if (isa && isb && !isc) {
-        numbers[c].value = valuea + valueb
+        n[c] = n[a] + n[b]
+        numbers[c].value = n[c]
         numbers[c].disabled = true
         locks[c].disabled = true
     }
     if (isa && !isb && isc) {
-        numbers[b].value = valuec - valuea
+        n[b] = n[c] - n[a]
+        numbers[b].value = n[b]
         numbers[b].disabled = true
         locks[b].disabled = true
     }
     if (!isa && isb && isc) {
-        numbers[a].value = valuec - valueb
+        n[a] = n[c] - n[b]
+        numbers[a].value = n[a]
         numbers[a].disabled = true
         locks[a].disabled = true
     }
@@ -33,8 +53,8 @@ function calc() {
         }
         numbers[i].disabled = false
         locks[i].disabled = false
+        n[i] = parseFloat(numbers[i].value)
     }
-    console.log("calc")
     check(0, 1, 2)
     check(3, 4, 5)
     check(6, 7, 8)
@@ -51,6 +71,30 @@ function calc() {
             numbers[i].classList.remove('negative');
         }
     }
+
+    setText("PA", n[6], n[8])
+    setText("P!A", n[7], n[8])
+    setText("PB", n[2], n[8])
+    setText("P!B", n[5], n[8])
+
+    setText("PAnB", n[0], n[8])
+    setText("PAn!B", n[3], n[8])
+    setText("P!AnB", n[1], n[8])
+    setText("P!An!B", n[4], n[8])
+
+    setText("PAuB", n[8]-n[4], n[8])
+    setText("PAu!B", n[8]-n[1], n[8])
+    setText("P!AuB", n[8]-n[3], n[8])
+    setText("P!Au!B", n[8]-n[0], n[8])
+
+    setText("PAB", n[0], n[6])
+    setText("PA!B", n[3], n[6])
+    setText("P!AB", n[1], n[7])
+    setText("P!A!B", n[4], n[7])
+    setText("PBA", n[0], n[2])
+    setText("PB!A", n[1], n[2])
+    setText("P!BA", n[3], n[5])
+    setText("P!B!A", n[4], n[5])
 }
 
 for (let i = 0; i < 9; i++) {
