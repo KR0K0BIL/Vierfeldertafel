@@ -11,57 +11,61 @@
 <body>
 
     <h1>Vierfeldertafel</h1>
+    Ereignisse:<br>
+    <input id="A" class="name" type="text" tabindex="1" value="A"><br>
+    <input id="B" class="name" type="text" tabindex="1" value="B"><br>
+    <br>
     <table>
         <tr>
             <th></th>
-            <th>A</th>
-            <th><span class="not">A</span></th>
+            <th><span class="A"></span></th>
+            <th><span class="not A"></span></th>
             <th></th>
         </tr>
         <tr>
-            <th>B</th>
-            <td><input id="number1" type="number" tabindex="1"><input id="lock1" type="checkbox"></td>
-            <td><input id="number2" type="number" tabindex="2"><input id="lock2" type="checkbox"></td>
-            <td><input id="number3" type="number" tabindex="3"><input id="lock3" type="checkbox"></td>
+            <th><span class="B"></span></th>
+            <td><input id="number1" type="number" tabindex="3"><input id="lock1" type="checkbox"></td>
+            <td><input id="number2" type="number" tabindex="4"><input id="lock2" type="checkbox"></td>
+            <td><input id="number3" type="number" tabindex="5"><input id="lock3" type="checkbox"></td>
         </tr>
         <tr>
-            <th><span class="not">B</span></th>
-            <td><input id="number4" type="number" tabindex="4"><input id="lock4" type="checkbox"></td>
-            <td><input id="number5" type="number" tabindex="5"><input id="lock5" type="checkbox"></td>
-            <td><input id="number6" type="number" tabindex="6"><input id="lock6" type="checkbox"></td>
+            <th><span class="not B"></span></th>
+            <td><input id="number4" type="number" tabindex="6"><input id="lock4" type="checkbox"></td>
+            <td><input id="number5" type="number" tabindex="7"><input id="lock5" type="checkbox"></td>
+            <td><input id="number6" type="number" tabindex="8"><input id="lock6" type="checkbox"></td>
         </tr>
         <tr>
             <th></th>
-            <td><input id="number7" type="number" tabindex="7"><input id="lock7" type="checkbox"></td>
-            <td><input id="number8" type="number" tabindex="8"><input id="lock8" type="checkbox"></td>
-            <td><input id="number9" type="number" tabindex="9"><input id="lock9" type="checkbox"></td>
+            <td><input id="number7" type="number" tabindex="9"><input id="lock7" type="checkbox"></td>
+            <td><input id="number8" type="number" tabindex="10"><input id="lock8" type="checkbox"></td>
+            <td><input id="number9" type="number" tabindex="11"><input id="lock9" type="checkbox"></td>
         </tr>
     </table>
     <br>
     <div style="line-height: 150%;">
-        P(A) = <span id="PA"></span><br>
-        P(<span class="not">A</span>) = <span id="P!A"></span><br>
-        P(B) = <span id="PB"></span><br>
-        P(<span class="not">B</span>) = <span id="P!B"></span><br>
+        P(<span class="A"></span>) = <span id="PA"></span><br>
+        P(<span class="not A"></span>) = <span id="P!A"></span><br>
+        P(<span class="B"></span>) = <span id="PB"></span><br>
+        P(<span class="not B"></span>) = <span id="P!B"></span><br>
         <br>
-        P(A⋂B) = <span id="PAnB"></span><br>
-        P(A⋂<span class="not">B</span>) = <span id="PAn!B"></span><br>
-        P(<span class="not">A</span>⋂B) = <span id="P!AnB"></span><br>
-        P(<span class="not">A</span>⋂<span class="not">B</span>) = <span id="P!An!B"></span><br>
+        P(<span class="A"></span>⋂<span class="B"></span>) = <span id="PAnB"></span><br>
+        P(<span class="A"></span>⋂<span class="not B"></span>) = <span id="PAn!B"></span><br>
+        P(<span class="not A"></span>⋂<span class="B"></span>) = <span id="P!AnB"></span><br>
+        P(<span class="not A"></span>⋂<span class="not B"></span>) = <span id="P!An!B"></span><br>
         <br>
-        P(A⋃B) = <span id="PAuB"></span><br>
-        P(A⋃<span class="not">B</span>) = <span id="PAu!B"></span><br>
-        P(<span class="not">A</span>⋃B) = <span id="P!AuB"></span><br>
-        P(<span class="not">A</span>⋃<span class="not">B</span>) = <span id="P!Au!B"></span><br>
+        P(<span class="A"></span>⋃<span class="B"></span>) = <span id="PAuB"></span><br>
+        P(<span class="A"></span>⋃<span class="not B"></span>) = <span id="PAu!B"></span><br>
+        P(<span class="not A"></span>⋃<span class="B"></span>) = <span id="P!AuB"></span><br>
+        P(<span class="not A"></span>⋃<span class="not B"></span>) = <span id="P!Au!B"></span><br>
         <br>
-        P<sub>A</sub>(B) = <span id="PAB"></span><br>
-        P<sub>A</sub>(<span class="not">B</span>) = <span id="PA!B"></span><br>
-        P<sub><span class="not">A</span></sub>(B) = <span id="P!AB"></span><br>
-        P<sub><span class="not">A</span></sub>(<span class="not">B</span>) = <span id="P!A!B"></span><br>
-        P<sub>B</sub>(A) = <span id="PBA"></span><br>
-        P<sub>B</sub>(<span class="not">A</span>) = <span id="PB!A"></span><br>
-        P<sub><span class="not">B</span></sub>(A) = <span id="P!BA"></span><br>
-        P<sub><span class="not">B</span></sub>(<span class="not">A</span>) = <span id="P!B!A"></span><br>
+        P<sub><span class="A"></span></sub>(<span class="B"></span>) = <span id="PAB"></span><br>
+        P<sub><span class="A"></span></sub>(<span class="not B"></span>) = <span id="PA!B"></span><br>
+        P<sub><span class="not A"></span></sub>(<span class="B"></span>) = <span id="P!AB"></span><br>
+        P<sub><span class="not A"></span></sub>(<span class="not B"></span>) = <span id="P!A!B"></span><br>
+        P<sub><span class="B"></span></sub>(<span class="A"></span>) = <span id="PBA"></span><br>
+        P<sub><span class="B"></span></sub>(<span class="not A"></span>) = <span id="PB!A"></span><br>
+        P<sub><span class="not B"></span></sub>(<span class="A"></span>) = <span id="P!BA"></span><br>
+        P<sub><span class="not B"></span></sub>(<span class="not A"></span>) = <span id="P!B!A"></span><br>
     </div>
 
     <script src="script.js"></script>
