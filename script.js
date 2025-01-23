@@ -9,7 +9,7 @@ function setText(id, a, b) {
         object.innerText = ""
     } else {
         equal = "≈"
-        if (Number.isInteger(value*100)) {
+        if (Number.isInteger(value * 100)) {
             number = (value * 100) + '%'
             equal = "="
         } else if (Math.abs(value) < 0.01) {
@@ -82,10 +82,10 @@ function calc() {
     setText("P!AnB", n[1], n[8])
     setText("P!An!B", n[4], n[8])
 
-    setText("PAuB", n[8]-n[4], n[8])
-    setText("PAu!B", n[8]-n[1], n[8])
-    setText("P!AuB", n[8]-n[3], n[8])
-    setText("P!Au!B", n[8]-n[0], n[8])
+    setText("PAuB", n[8] - n[4], n[8])
+    setText("PAu!B", n[8] - n[1], n[8])
+    setText("P!AuB", n[8] - n[3], n[8])
+    setText("P!Au!B", n[8] - n[0], n[8])
 
     setText("PAB", n[0], n[6])
     setText("PA!B", n[3], n[6])
@@ -96,6 +96,21 @@ function calc() {
     setText("P!BA", n[3], n[5])
     setText("P!B!A", n[4], n[5])
 }
+
+function updateNames() {
+    for (element of document.getElementsByClassName("A")) {
+        element.innerText = A.value
+    }
+    for (element of document.getElementsByClassName("B")) {
+        element.innerText = B.value
+    }
+}
+
+let A = document.getElementById("A")
+let B = document.getElementById("B")
+A.addEventListener("input", updateNames)
+B.addEventListener("input", updateNames)
+updateNames()
 
 for (let i = 0; i < 9; i++) {
     let number = document.getElementById("number" + (i + 1).toString())
