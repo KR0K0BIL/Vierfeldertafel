@@ -1,0 +1,19 @@
+table, th, td {
+    border: 1px solid black;
+}
+
+input[type="number"] {
+  height: 40px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  cursor: pointer;
+}
