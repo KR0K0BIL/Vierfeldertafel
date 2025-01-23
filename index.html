@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
+    <meta charset="UTF-8">
     <title>Vierfeldertafel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,26 +14,26 @@
         <tr>
             <th></th>
             <th>A</th>
-            <th>!A</th>
+            <th><span class="not">A</span></th>
             <th></th>
         </tr>
         <tr>
             <th>B</th>
-            <td><input id="number1" type="number"><input id="lock1" type="checkbox"></td>
-            <td><input id="number2" type="number"><input id="lock2" type="checkbox"></td>
-            <td><input id="number3" type="number"><input id="lock3" type="checkbox"></td>
+            <td><input id="number1" type="number" tabindex="1"><input id="lock1" type="checkbox"></td>
+            <td><input id="number2" type="number" tabindex="2"><input id="lock2" type="checkbox"></td>
+            <td><input id="number3" type="number" tabindex="3"><input id="lock3" type="checkbox"></td>
         </tr>
         <tr>
-            <th>!B</th>
-            <td><input id="number4" type="number"><input id="lock4" type="checkbox"></td>
-            <td><input id="number5" type="number"><input id="lock5" type="checkbox"></td>
-            <td><input id="number6" type="number"><input id="lock6" type="checkbox"></td>
+            <th><span class="not">B</span></th>
+            <td><input id="number4" type="number" tabindex="4"><input id="lock4" type="checkbox"></td>
+            <td><input id="number5" type="number" tabindex="5"><input id="lock5" type="checkbox"></td>
+            <td><input id="number6" type="number" tabindex="6"><input id="lock6" type="checkbox"></td>
         </tr>
         <tr>
             <th></th>
-            <td><input id="number7" type="number"><input id="lock7" type="checkbox"></td>
-            <td><input id="number8" type="number"><input id="lock8" type="checkbox"></td>
-            <td><input id="number9" type="number"><input id="lock9" type="checkbox"></td>
+            <td><input id="number7" type="number" tabindex="7"><input id="lock7" type="checkbox"></td>
+            <td><input id="number8" type="number" tabindex="8"><input id="lock8" type="checkbox"></td>
+            <td><input id="number9" type="number" tabindex="9"><input id="lock9" type="checkbox"></td>
         </tr>
     </table>
 
