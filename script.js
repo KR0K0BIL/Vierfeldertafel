@@ -49,9 +49,9 @@ function setText(id, a, b) {
 }
 
 function check(a, b, c) {
-    let isa = (numbers[a].value != "")
-    let isb = (numbers[b].value != "")
-    let isc = (numbers[c].value != "")
+    let isa = (numbers[a].value != "" || numbers[a].validity.badInput || numbers[a].disabled)
+    let isb = (numbers[b].value != "" || numbers[b].validity.badInput || numbers[b].disabled)
+    let isc = (numbers[c].value != "" || numbers[c].validity.badInput || numbers[c].disabled)
 
     if (isa && isb && !isc) {
         n[c] = n[a] + n[b]
@@ -165,7 +165,12 @@ for (let i = 0; i < 9; i++) {
     numbers[i] = number
     locks[i] = lock
     number.addEventListener("input", () => {
-        lock.checked = (number.value != "")
+        lock.checked = (number.value != "" || number.validity.badInput)
+        if (number.validity.badInput) {
+            number.classList.add("badInput")
+        } else {
+            number.classList.remove("badInput")
+        }
         calc()
     })
     lock.addEventListener("input", () => {

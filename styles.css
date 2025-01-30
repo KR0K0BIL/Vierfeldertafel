@@ -23,7 +23,7 @@ input[type="number"]:disabled {
     background-color: #e0e0e0;
 }
 
-input[type="number"].negative {
+input[type="number"].negative, input[type="number"].badInput {
     border-color: red;
     background-color: #ffe6e6;
 }
