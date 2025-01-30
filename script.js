@@ -2,27 +2,49 @@ let numbers = []
 let locks = []
 let n = []
 
+function gcd(a, b) {
+    while (b !== 0) {
+        [a, b] = [b, a % b];
+    }
+    return Math.abs(a); // Falls negative Zahlen vorkommen
+}
+
+function reduceFraction(a, b) {
+    if (b === 0) throw new Error("Division durch 0 ist nicht erlaubt!");
+
+    const teiler = gcd(a, b);
+    return [a / teiler, b / teiler]; // Gekürzter Bruch
+}
+
+
 function setText(id, a, b) {
-    value = a / b
+    value = 100 * a / b
+    equal = "≈"
+    if (Number.isInteger(value * 100)) {
+        num = value + '%'
+        equal = "="
+    } else if (Math.abs(value) < 1) {
+        num = value.toPrecision(3) + '%'
+    } else {
+        num = value.toFixed(2) + '%'
+    }
+    if (!isNaN(value)) {
+        f = reduceFraction(a, b)
+        c = f[0]
+        d = f[1]
+    }
     for (object of document.getElementsByClassName(id)) {
-        if (isNaN(value)) {
-            object.innerHTML = ""
-        } else {
-            equal = "≈"
-            if (Number.isInteger(value * 100)) {
-                num = (value * 100) + '%'
-                equal = "="
-            } else if (Math.abs(value) < 0.01) {
-                num = (value * 100).toPrecision(3) + '%'
-            } else {
-                num = (value * 100).toFixed(2) + '%'
-            }
-            if (object.classList.contains("text")) {
-                object.innerHTML = a + "/" + b
-            } else {
-                object.innerHTML = a + "/" + b + " " + equal + " <b>" + num + "</b>"
+        text = ""
+        if (!isNaN(value)) {
+            text += a + "/" + b
+            if (!object.classList.contains("text")) {
+                if (a != c) {
+                    text += " = " + c + "/" + d
+                }
+                text += " " + equal + " <b>" + num + "</b>"
             }
         }
+        object.innerHTML = text
     }
 }
 
