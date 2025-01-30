@@ -6,14 +6,14 @@ function gcd(a, b) {
     while (b !== 0) {
         [a, b] = [b, a % b];
     }
-    return Math.abs(a); // Falls negative Zahlen vorkommen
+    return Math.abs(a);
 }
 
 function reduceFraction(a, b) {
     if (b === 0) throw new Error("Division durch 0 ist nicht erlaubt!");
 
     const teiler = gcd(a, b);
-    return [a / teiler, b / teiler]; // Gekürzter Bruch
+    return [a / teiler, b / teiler];
 }
 
 
@@ -35,7 +35,7 @@ function setText(id, a, b) {
     }
     for (object of document.getElementsByClassName(id)) {
         text = ""
-        if (!isNaN(value)) {
+        if (!isNaN(value) && value >= 0) {
             text += a + "/" + b
             if (!object.classList.contains("text")) {
                 if (a != c) {

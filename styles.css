@@ -81,7 +81,7 @@ input[type="checkbox"]:checked::before {
 
 .text {
     position: absolute;
-    transform: translate(var(--x), var(--y)) translate(-50%, -50%);
+    transform: translate(calc(max(min(var(--x) + 50%, var(--max)) - 100%, var(--min))), calc(var(--y) - 50%));
 }
 
 .tree {
@@ -95,8 +95,6 @@ input[type="checkbox"]:checked::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* pointer-events: none; */
-    /* SVG kann nicht überlagert werden */
 }
 
 .probabilities {
