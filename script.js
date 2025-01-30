@@ -97,6 +97,26 @@ function calc() {
     setText("P!B!A", n[4], n[5])
 }
 
+function swapCells(a, b) {
+	av = numbers[a].value
+	numbers[a].value = numbers[b].value
+	numbers[b].value = av
+	ac = locks[a].checked
+	locks[a].checked = locks[b].checked
+	locks[b].checked = ac
+}
+
+function swap() {
+	av = A.value
+	A.value = B.value
+	B.value = av
+	updateNames()
+	swapCells(1, 3)
+	swapCells(2, 6)
+	swapCells(5, 7)
+	calc()
+}
+
 function updateNames() {
     for (element of document.getElementsByClassName("A")) {
         element.innerText = A.value
