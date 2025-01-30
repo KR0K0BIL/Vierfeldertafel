@@ -4,20 +4,25 @@ let n = []
 
 function setText(id, a, b) {
     value = a / b
-    object = document.getElementById(id)
-    if (isNaN(value)) {
-        object.innerText = ""
-    } else {
-        equal = "≈"
-        if (Number.isInteger(value * 100)) {
-            number = (value * 100) + '%'
-            equal = "="
-        } else if (Math.abs(value) < 0.01) {
-            number = (value * 100).toPrecision(3) + '%'
+    for (object of document.getElementsByClassName(id)) {
+        if (isNaN(value)) {
+            object.innerHTML = ""
         } else {
-            number = (value * 100).toFixed(2) + '%'
+            equal = "≈"
+            if (Number.isInteger(value * 100)) {
+                num = (value * 100) + '%'
+                equal = "="
+            } else if (Math.abs(value) < 0.01) {
+                num = (value * 100).toPrecision(3) + '%'
+            } else {
+                num = (value * 100).toFixed(2) + '%'
+            }
+            if (object.classList.contains("text")) {
+                object.innerHTML = a + "/" + b
+            } else {
+                object.innerHTML = a + "/" + b + " " + equal + " <b>" + num + "</b>"
+            }
         }
-        object.innerHTML = a + "/" + b + " " + equal + " <b>" + number + "</b>"
     }
 }
 
@@ -98,31 +103,31 @@ function calc() {
 }
 
 function swapCells(a, b) {
-	av = numbers[a].value
-	numbers[a].value = numbers[b].value
-	numbers[b].value = av
-	ac = locks[a].checked
-	locks[a].checked = locks[b].checked
-	locks[b].checked = ac
+    av = numbers[a].value
+    numbers[a].value = numbers[b].value
+    numbers[b].value = av
+    ac = locks[a].checked
+    locks[a].checked = locks[b].checked
+    locks[b].checked = ac
 }
 
 function swap() {
-	av = A.value
-	A.value = B.value
-	B.value = av
-	updateNames()
-	swapCells(1, 3)
-	swapCells(2, 6)
-	swapCells(5, 7)
-	calc()
+    av = A.value
+    A.value = B.value
+    B.value = av
+    updateNames()
+    swapCells(1, 3)
+    swapCells(2, 6)
+    swapCells(5, 7)
+    calc()
 }
 
 function updateNames() {
     for (element of document.getElementsByClassName("A")) {
-        element.innerText = A.value
+        element.innerHTML = A.value
     }
     for (element of document.getElementsByClassName("B")) {
-        element.innerText = B.value
+        element.innerHTML = B.value
     }
 }
 

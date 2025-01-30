@@ -17,7 +17,7 @@
     <br>
     <table>
         <tr>
-            <th><div onclick="swap()">🔀</div></th>
+            <th class="swap" onclick="swap()">🔀</th>
             <th><span class="A"></span></th>
             <th><span class="not A"></span></th>
             <th></th>
@@ -41,31 +41,73 @@
             <td><input id="number9" type="number" tabindex="11"><input id="lock9" type="checkbox"></td>
         </tr>
     </table>
-    <br>
-    <div style="line-height: 150%;">
-        P(<span class="A"></span>) = <span id="PA"></span><br>
-        P(<span class="not A"></span>) = <span id="P!A"></span><br>
-        P(<span class="B"></span>) = <span id="PB"></span><br>
-        P(<span class="not B"></span>) = <span id="P!B"></span><br>
+    <div class="tree">
+        <svg viewBox="0 0 400 300">
+            <line class="line" x1="200" y1="50" x2="160" y2="90" />
+            <line class="line" x1="140" y1="110" x2="110" y2="140" />
+
+            <line class="line" x1="200" y1="50" x2="240" y2="90" />
+            <line class="line" x1="260" y1="110" x2="290" y2="140" />
+
+            <line class="line" x1="90" y1="160" x2="75" y2="190" />
+            <line class="line" x1="65" y1="210" x2="50" y2="240" />
+
+            <line class="line" x1="110" y1="160" x2="125" y2="190" />
+            <line class="line" x1="135" y1="210" x2="150" y2="240" />
+
+            <line class="line" x1="290" y1="160" x2="275" y2="190" />
+            <line class="line" x1="265" y1="210" x2="250" y2="240" />
+
+            <line class="line" x1="310" y1="160" x2="325" y2="190" />
+            <line class="line" x1="335" y1="210" x2="350" y2="240" />
+        </svg>
+        <div class="text-overlay">
+            <span class="text PA" style="--x:150px; --y:100px"></span>
+            <span class="text P!A" style="--x:250px; --y:100px"></span>
+
+            <span class="text A" style="--x:100px; --y:150px"></span>
+            <span class="text not A" style="--x:300px; --y:150px"></span>
+
+            <span class="text PAB" style="--x:70px; --y:200px"></span>
+            <span class="text PAnB" style="--x:45px; --y:272px"></span>
+            <span class="text PA!B" style="--x:130px; --y:200px"></span>
+            <span class="text PAn!B" style="--x:155px; --y:272px"></span>
+
+            <span class="text B" style="--x:45px; --y:252px"></span>
+            <span class="text not B" style="--x:155px; --y:252px"></span>
+            <span class="text B" style="--x:245px; --y:252px"></span>
+            <span class="text not B" style="--x:355px; --y:252px"></span>
+
+            <span class="text P!AB" style="--x:270px; --y:200px"></span>
+            <span class="text P!AnB" style="--x:245px; --y:272px"></span>
+            <span class="text P!A!B" style="--x:330px; --y:200px"></span>
+            <span class="text P!An!B" style="--x:355px; --y:272px"></span>
+        </div>
+    </div>
+    <div class="probabilities">
+        P(<span class="A"></span>) = <span class="PA"></span><br>
+        P(<span class="not A"></span>) = <span class="P!A"></span><br>
+        P(<span class="B"></span>) = <span class="PB"></span><br>
+        P(<span class="not B"></span>) = <span class="P!B"></span><br>
         <br>
-        P(<span class="A"></span>⋂<span class="B"></span>) = <span id="PAnB"></span><br>
-        P(<span class="A"></span>⋂<span class="not B"></span>) = <span id="PAn!B"></span><br>
-        P(<span class="not A"></span>⋂<span class="B"></span>) = <span id="P!AnB"></span><br>
-        P(<span class="not A"></span>⋂<span class="not B"></span>) = <span id="P!An!B"></span><br>
+        P(<span class="A"></span>⋂<span class="B"></span>) = <span class="PAnB"></span><br>
+        P(<span class="A"></span>⋂<span class="not B"></span>) = <span class="PAn!B"></span><br>
+        P(<span class="not A"></span>⋂<span class="B"></span>) = <span class="P!AnB"></span><br>
+        P(<span class="not A"></span>⋂<span class="not B"></span>) = <span class="P!An!B"></span><br>
         <br>
-        P(<span class="A"></span>⋃<span class="B"></span>) = <span id="PAuB"></span><br>
-        P(<span class="A"></span>⋃<span class="not B"></span>) = <span id="PAu!B"></span><br>
-        P(<span class="not A"></span>⋃<span class="B"></span>) = <span id="P!AuB"></span><br>
-        P(<span class="not A"></span>⋃<span class="not B"></span>) = <span id="P!Au!B"></span><br>
+        P(<span class="A"></span>⋃<span class="B"></span>) = <span class="PAuB"></span><br>
+        P(<span class="A"></span>⋃<span class="not B"></span>) = <span class="PAu!B"></span><br>
+        P(<span class="not A"></span>⋃<span class="B"></span>) = <span class="P!AuB"></span><br>
+        P(<span class="not A"></span>⋃<span class="not B"></span>) = <span class="P!Au!B"></span><br>
         <br>
-        P<sub><span class="A"></span></sub>(<span class="B"></span>) = <span id="PAB"></span><br>
-        P<sub><span class="A"></span></sub>(<span class="not B"></span>) = <span id="PA!B"></span><br>
-        P<sub><span class="not A"></span></sub>(<span class="B"></span>) = <span id="P!AB"></span><br>
-        P<sub><span class="not A"></span></sub>(<span class="not B"></span>) = <span id="P!A!B"></span><br>
-        P<sub><span class="B"></span></sub>(<span class="A"></span>) = <span id="PBA"></span><br>
-        P<sub><span class="B"></span></sub>(<span class="not A"></span>) = <span id="PB!A"></span><br>
-        P<sub><span class="not B"></span></sub>(<span class="A"></span>) = <span id="P!BA"></span><br>
-        P<sub><span class="not B"></span></sub>(<span class="not A"></span>) = <span id="P!B!A"></span><br>
+        P<sub><span class="A"></span></sub>(<span class="B"></span>) = <span class="PAB"></span><br>
+        P<sub><span class="A"></span></sub>(<span class="not B"></span>) = <span class="PA!B"></span><br>
+        P<sub><span class="not A"></span></sub>(<span class="B"></span>) = <span class="P!AB"></span><br>
+        P<sub><span class="not A"></span></sub>(<span class="not B"></span>) = <span class="P!A!B"></span><br>
+        P<sub><span class="B"></span></sub>(<span class="A"></span>) = <span class="PBA"></span><br>
+        P<sub><span class="B"></span></sub>(<span class="not A"></span>) = <span class="PB!A"></span><br>
+        P<sub><span class="not B"></span></sub>(<span class="A"></span>) = <span class="P!BA"></span><br>
+        P<sub><span class="not B"></span></sub>(<span class="not A"></span>) = <span class="P!B!A"></span><br>
     </div>
 
     <script src="script.js"></script>
